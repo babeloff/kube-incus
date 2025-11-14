@@ -1,0 +1,48 @@
+{% set name = "kubeincus" %}
+{% set version = "0.1.0" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://github.com/babeloff/kube-incus/archive/v{{ version }}.tar.gz
+  sha256: 0000000000000000000000000000000000000000000000000000000000000000  # Update this with actual hash
+
+build:
+  number: 0
+  skip: true  # [not linux]
+
+requirements:
+  build:
+    - {{ compiler('rust') }}
+    - {{ compiler('c') }}
+    - cargo-bundle-licenses
+    - pkg-config
+  host:
+    - openssl
+  run:
+    - openssl
+
+test:
+  commands:
+    - kubeincus --help
+    - kubeincus --version
+
+about:
+  home: https://github.com/babeloff/kube-incus
+  license: Apache-2.0
+  license_family: Apache
+  license_file: LICENSE
+  summary: A bridge enabling KubeVirt to manage system-containers with Incus/LXD
+  description: |
+    Kubeincus is a bridge that enables KubeVirt to manage system-containers 
+    with Incus/LXD. It uses images built with distrobuilder and is implemented
+    in Rust for performance and safety. The project is managed by pixi for
+    reproducible environments.
+  doc_url: https://github.com/babeloff/kube-incus
+  dev_url: https://github.com/babeloff/kube-incus
+
+extra:
+  recipe-maintainers:
+    - babeloff
