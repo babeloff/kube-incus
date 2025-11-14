@@ -1,0 +1,22 @@
+[project]
+name = "kubeincus"
+version = "0.1.0"
+description = "A bridge enabling KubeVirt to manage system-containers with Incus/LXD"
+authors = ["babeloff"]
+channels = ["conda-forge"]
+platforms = ["linux-64", "linux-aarch64"]
+
+[tasks]
+build = "cargo build --release"
+test = "cargo test"
+fmt = "cargo fmt --all -- --check"
+clippy = "cargo clippy --all-targets --all-features -- -D warnings"
+clean = "cargo clean"
+
+[dependencies]
+rust = ">=1.70"
+cargo = ">=1.70"
+pkg-config = "*"
+
+[feature.dev.dependencies]
+rust-analyzer = "*"
