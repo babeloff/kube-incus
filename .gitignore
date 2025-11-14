@@ -1,0 +1,29 @@
+# Rust
+/target/
+**/*.rs.bk
+*.pdb
+Cargo.lock
+
+# Pixi
+.pixi/
+*.pixi.lock
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+/dist/
+/build/
+
+# Conda
+*.egg-info/
+__pycache__/
+*.py[cod]
